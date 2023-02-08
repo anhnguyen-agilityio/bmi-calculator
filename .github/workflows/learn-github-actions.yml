@@ -37,6 +37,7 @@ jobs:
           cache: 'npm'
       - uses: actions/cache@v2
         with:
+          path: '**/node_modules'
           key: ${{ runner.os }}-modules-${{ hashFiles('**/package-lock.json') }}
       - name: Test
         run: npm test -- --coverage --watchAll=false
@@ -52,6 +53,7 @@ jobs:
           cache: 'npm'
       - uses: actions/cache@v2
         with:
+          path: '**/node_modules'
           key: ${{ runner.os }}-modules-${{ hashFiles('**/package-lock.json') }}
       - name: Deployment
         run: echo "Deploy..."
